@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Generacion del Token con credenciales correctas</description>
+   <name>SEC01-Login HC</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b6c031e7-fa2d-4c33-b970-b4611bc227f9</testCaseGuid>
+</TestCaseEntity>

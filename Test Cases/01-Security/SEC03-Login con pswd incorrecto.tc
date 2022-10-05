@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>SEC03-Login con pswd incorrecto</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>459a029d-ff20-469e-b0a7-0e307f089905</testCaseGuid>
+</TestCaseEntity>

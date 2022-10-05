@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>Testing Data</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Login token</description>
+      <initValue>''</initValue>
+      <name>vToken</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Tiempo de vida del token</description>
+      <initValue>findTestData('05-WSSecurity/WSSecurity').getValue(2, 1)</initValue>
+      <name>TokenTTL</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Descripcion del error HTTP</description>
+      <initValue>''</initValue>
+      <name>vMsgErrorHTTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Usuario</description>
+      <initValue>findTestData('06-Users/Users').getValue(1, 18)</initValue>
+      <name>vUser</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Password</description>
+      <initValue>findTestData('06-Users/Users').getValue(2, 18)</initValue>
+      <name>vPass</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Usuario incorrecto</description>
+      <initValue>findTestData('05-WSSecurity/DatosNegativos').getValue(1, 1)</initValue>
+      <name>vUserIncorrecto</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Pswd incorrecto</description>
+      <initValue>findTestData('05-WSSecurity/DatosNegativos').getValue(2, 1)</initValue>
+      <name>vPassIncorrecto</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Response</description>
+      <initValue>''</initValue>
+      <name>vResponse</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Operacion con el TTL del Token</description>
+      <initValue>''</initValue>
+      <name>vTokenTTLTransport</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Codigo de error</description>
+      <initValue>''</initValue>
+      <name>vErrorCode</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Descripcion del codigo de error</description>
+      <initValue>''</initValue>
+      <name>vErrorDescription</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>vTempHTTPCode</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Metodo a utilizar</description>
+      <initValue>''</initValue>
+      <name>vMethod</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Servidior a conectar</description>
+      <initValue>''</initValue>
+      <name>vServer</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>
