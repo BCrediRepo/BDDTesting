@@ -17,4 +17,6 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WS.sendRequest(findTestObject('Users/UsersRecovery', [('Server') : findTestData('01-Servers/Servers').getValue(2, 1), ('User') : findTestData(
+                '06-Users/Users').getValue(1, 18)]))
 

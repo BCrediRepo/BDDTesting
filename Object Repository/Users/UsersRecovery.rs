@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
-   <description>WS Security</description>
-   <name>LoginToken</name>
+   <description></description>
+   <name>UsersRecovery</name>
    <tag></tag>
-   <elementGuidId>6546d6b3-1453-44f7-aefe-7b9e81730161</elementGuidId>
+   <elementGuidId>9d6610a5-1885-4642-a5fa-6414dbee36f9</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;email\&quot;: \&quot;${User}\&quot;,\n  \&quot;password\&quot;: \&quot;${Pswd}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  email: \&quot;test.qa.52@yopmail.com\&quot;\n}\n &quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -21,13 +21,13 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>86e1d9a1-4bc9-4abd-a4ac-bf435eb45721</webElementGuid>
+      <webElementGuid>dcf8657d-d4c4-4f40-8a00-e2b33382d094</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.5.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>https://${Server}/api/security/login/token</restUrl>
+   <restUrl>https://${Server}/ms/users/api/v1/users/recover</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -37,25 +37,18 @@
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>findTestData('06-Users/Users').getValue(1, 18)</defaultValue>
-      <description></description>
-      <id>eb1a0ccf-2706-4ad0-b4b4-0fa1bb3276b6</id>
-      <masked>false</masked>
-      <name>User</name>
-   </variables>
-   <variables>
-      <defaultValue>findTestData('06-Users/Users').getValue(2, 18)</defaultValue>
-      <description></description>
-      <id>704ae0d0-6143-4cb1-9306-77dab332ba81</id>
-      <masked>false</masked>
-      <name>Pswd</name>
-   </variables>
-   <variables>
       <defaultValue>findTestData('01-Servers/Servers').getValue(2, 1)</defaultValue>
       <description></description>
-      <id>9f2f817e-4da1-41f1-bd56-b0b3a11fd9af</id>
+      <id>86651d4a-dca5-467c-bab7-36e7ea7ada32</id>
       <masked>false</masked>
       <name>Server</name>
+   </variables>
+   <variables>
+      <defaultValue>findTestData('06-Users/Users').getValue(1, 18)</defaultValue>
+      <description></description>
+      <id>b8dd3687-59cb-4c0c-b8e3-5136016bbf8f</id>
+      <masked>false</masked>
+      <name>User</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
@@ -69,7 +62,7 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-</verificationScript>
+WS.verifyElementPropertyValue(response, 'status', 409)
+WS.verifyElementPropertyValue(response, 'name', &quot;Conflict&quot;)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

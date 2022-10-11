@@ -1,4 +1,4 @@
-package pkgLogin
+package pkgUsers
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -45,58 +45,99 @@ import cucumber.api.java.en.When
 import javax.swing.JFrame as JFrame
 import javax.swing.JOptionPane as JOptionPane
 
-class LGN01HappyCase {
 
-	@Given("Configuracion de request")
+class USR02RecoveryUser {
+
+//--- Recupera usuario con mail correcto ---
+
+	@Given("Configuracion de request con mail de usuario valido")
 	def configRequest() {
-		println("\n Configuracion del Request")
+		println("\n Configuracion del Request")		
 
 		//Test data
-		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 1)
+		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 2)
 		GlobalVariable.vServer = findTestData('01-Servers/Servers').getValue(2, 1)
 		//Response data
 		GlobalVariable.vTokenTTLTransport
 		//HTTP Error Code
 		GlobalVariable.vTempHTTPCode
 		GlobalVariable.vTempHTTPCode = findTestData('04-ResponseCodes/HTTPCodes').getValue(2, 1)
-
+		
 	}
 
-
-	@When("Envio del request")
+	@When("Se envia el request para recuperacion")
 	def sendRequest() {
 		println("\n Envio del request")
-
+		
 		//Method Errors varibales
 		GlobalVariable.vResponse = WS.sendRequest(findTestObject(
 				//Method
 				GlobalVariable.vMethod,
 				[
-					('User') : GlobalVariable.vUser,
-					('Pswd') : GlobalVariable.vPass,
-					('Server') : GlobalVariable.vServer
+					('Server') : GlobalVariable.vServer,
+					('User') : GlobalVariable.vUser
+					
 				]
 				)
 				)
-
 	}
 
-	@Then("Verifica el response")
+	@Then("Se valida el response")
 	def verifyResponse() {
 		println("\n Verifica el response")
-
+		
 		int vHTTPCodeVerif
 		vHTTPCodeVerif = Integer.parseInt(GlobalVariable.vTempHTTPCode)
-
 		//HTTP response code validation
 		WS.verifyResponseStatusCode(GlobalVariable.vResponse, vHTTPCodeVerif)
+		
+	}
+//--------------------------------------------------------------------------------------------------------------------
+	@Given("Configuracion de request usuario invalido")
+	def configRequestBadUser() {
+		println("\n Configuracion del Request")
 
-		//Se captura el Token y se almacena en variable global
-		GlobalVariable.vToken = WS.getElementPropertyValue(GlobalVariable.vResponse, 'access_token')
-		//JOptionPane.showMessageDialog(null,GlobalVariable.vToken)
-		GlobalVariable.vTokenTTLTransport = WS.getElementPropertyValue(GlobalVariable.vResponse, 'expires_in')
-		//JOptionPane.showMessageDialog(null, vTokenTTLTransport)
-		WS.verifyElementPropertyValue(GlobalVariable.vResponse, 'expires_in', GlobalVariable.vTokenTTLTransport)
-
+		//Test data
+		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 2)
+		GlobalVariable.vServer = findTestData('01-Servers/Servers').getValue(2, 1)
+		//Response data
+		GlobalVariable.vTokenTTLTransport
+		//HTTP Error Code
+		GlobalVariable.vTempHTTPCode
+		GlobalVariable.vTempHTTPCode = findTestData('04-ResponseCodes/HTTPCodes').getValue(2, 4)
+		
+		JOptionPane.showMessageDialog(null,GlobalVariable.vTempHTTPCode)
+		JOptionPane.showMessageDialog(null,GlobalVariable.vUsuarioInvalido)
+			
+	}
+	
+	@When("Se envia el request para usuario invalido")
+	def sendRequestBadUser() {
+		println("\n Envio del request")
+		
+		//Method Errors varibales
+		GlobalVariable.vResponse = WS.sendRequest(findTestObject(
+				//Method
+				GlobalVariable.vMethod,
+				[
+					('Server') : GlobalVariable.vServer,
+					('User') : GlobalVariable.vUsuarioInvalido
+					
+				]
+				)
+				)
+	}
+	
+	@Then("Se valida el response usuario invalido")
+	def verifyResponseBadUser() {
+		println("\n Verifica el response")
+		
+		int vHTTPCodeVerif
+		vHTTPCodeVerif = Integer.parseInt(GlobalVariable.vTempHTTPCode)
+		
+		JOptionPane.showMessageDialog(null,vHTTPCodeVerif)
+		//HTTP response code validation
+		WS.verifyResponseStatusCode(GlobalVariable.vResponse, vHTTPCodeVerif)
+		
 	}
 }

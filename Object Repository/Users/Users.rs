@@ -58,6 +58,11 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
+WS.verifyElementPropertyValue(response, 'data[0].cuit', &quot;20-07608479-4&quot;)
+WS.verifyElementPropertyValue(response, 'data[0].email', &quot;test.qa.87@yopmail.com&quot;)
+WS.verifyElementPropertyValue(response, 'data[0].role', &quot;ADMIN&quot;)
+WS.verifyElementPropertyValue(response, 'data[0].commerce_type_id', &quot;phe-free&quot;)
+WS.verifyElementPropertyValue(response, 'data', '')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

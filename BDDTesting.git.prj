@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-   <description></description>
+   <description>Proyecto qeu contiene las pruebas necesarias para PayWay a nivel de WS</description>
    <name>BDDTesting.git</name>
    <tag></tag>
    <UUID>77b89fd8-e75b-4f60-b32d-ff367606e821</UUID>
@@ -26,5 +26,5 @@
       </systemFolderList>
    </sourceContent>
    <timeStampInProperties>false</timeStampInProperties>
-   <type>WEBUI</type>
+   <type>WEBSERVICE</type>
 </Project>

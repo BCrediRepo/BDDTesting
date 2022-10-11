@@ -30,6 +30,21 @@
       <name>vPass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
+      <description>CUIT</description>
+      <initValue>findTestData('06-Users/Users').getValue(3, 18)</initValue>
+      <name>vCUIT</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>CUIT formato incorrecto</description>
+      <initValue>findTestData('07-WSUsers/DatosNegativos').getValue(2, 1)</initValue>
+      <name>vBadFormatCUIT</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Rol de usuario</description>
+      <initValue>''</initValue>
+      <name>vRol</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
       <description>Usuario incorrecto</description>
       <initValue>findTestData('05-WSSecurity/DatosNegativos').getValue(1, 1)</initValue>
       <name>vUserIncorrecto</name>
@@ -73,5 +88,15 @@
       <description>Servidior a conectar</description>
       <initValue>''</initValue>
       <name>vServer</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>ID de comercio</description>
+      <initValue>''</initValue>
+      <name>vCommerceID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Usuario con formato de mail invalido</description>
+      <initValue>findTestData('07-WSUsers/DatosNegativos').getValue(2, 2)</initValue>
+      <name>vUsuarioInvalido</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

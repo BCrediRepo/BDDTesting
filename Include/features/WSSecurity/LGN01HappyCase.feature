@@ -8,4 +8,3 @@ Feature: Login-WSSecure
     Given Configuracion de request
     When Envio del request
     Then Verifica el response
-
