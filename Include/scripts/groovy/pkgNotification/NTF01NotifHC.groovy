@@ -1,4 +1,4 @@
-package pkgUsers
+package pkgNotification
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -42,60 +42,47 @@ import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
 
-import javax.swing.JFrame as JFrame
-import javax.swing.JOptionPane as JOptionPane
 
-
-
-class USR03BFFUser {
-
-	@Given("Configuracion del BFFUser request GET")
+class NTF01NotifHC {
+	
+	@Given("Configuracion de request para BFFNotification")
 	def configRequest() {
 		println("\n Configuracion del Request")
-
+		
 		//Test data
-		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 3)
+		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 5)
 		GlobalVariable.vServer = findTestData('01-Servers/Servers').getValue(2, 1)
 		//Response data
 		GlobalVariable.vTokenTTLTransport
 		//HTTP Error Code
 		GlobalVariable.vTempHTTPCode
 		GlobalVariable.vTempHTTPCode = findTestData('04-ResponseCodes/HTTPCodes').getValue(2, 1)
-
-		//JOptionPane.showMessageDialog(null, GlobalVariable.vToken)
-
+	
 	}
 
-	@When("Envio del request BFFUser GET")
+	@When("Envio del request BFFNotification")
 	def sendRequest() {
 		println("\n Envio del request")
-
-		//Method Errors varibales
+		
 		GlobalVariable.vResponse = WS.sendRequest(findTestObject(
-				//Method
-				GlobalVariable.vMethod,
+			//Method
+			GlobalVariable.vMethod,
 				[
-					('Server') : GlobalVariable.vServer,
-					('Token') : GlobalVariable.vToken
+					('Server') : GlobalVariable.vServer
 				]
-				)
-				)
-
+			)
+		)
+	
 	}
 
-	@Then("Verifica el response BFFUser GET")
+	@Then("Verifica el response de BFFNotification")
 	def verifyResponse() {
 		println("\n Verifica el response")
-
-		//JOptionPane.showMessageDialog(null,GlobalVariable.vToken)
+	
 		int vHTTPCodeVerif
 		vHTTPCodeVerif = Integer.parseInt(GlobalVariable.vTempHTTPCode)
+
 		//HTTP response code validation
 		WS.verifyResponseStatusCode(GlobalVariable.vResponse, vHTTPCodeVerif)
-
-		//Validacion de campos dentro del response
-		WS.verifyElementPropertyValue(GlobalVariable.vResponse, 'cuit', GlobalVariable.vCUIT)
-		WS.verifyElementPropertyValue(GlobalVariable.vResponse, 'email', GlobalVariable.vUser)
-
 	}
 }

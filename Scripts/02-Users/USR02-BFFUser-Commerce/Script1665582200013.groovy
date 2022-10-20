@@ -17,4 +17,18 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+//Actualizacion de la dB
+//Query
+vQuery1 = "UPDATE " + findTestData('03-Database/SQLStrings').getValue(2,1) +"='"+ GlobalVariable.vUser+"'"
+//Conecta a la dB
+ CustomKeywords.'pkgPayWayWS.kywSQLConnection.connectDB'()
+ //Se pone en cero el limite de intentos de acceso
+ CustomKeywords.'pkgPayWayWS.kywSQLConnection.execute'(vQuery1)
+ //Se cierra lavUpdateon
+ CustomKeywords.'pkgPayWayWS.kywSQLConnection.closeDatabaseConnection'()
+ 
+ //Geneacion de Token
+ CustomKeywords.'pkgPayWayWS.kywModulos.MOD01WSLogin'()
 
+ //Test
+ CucumberKW.runFeatureFile('Include/features/WSUsers/USR04BFFUserCommerce.feature')

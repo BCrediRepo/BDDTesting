@@ -30,7 +30,7 @@ public class kywModulos {
 	 *Generador de TOKEN para Authorization header      											*
 	 *----------------------------------------------------------------------------------------------*/
 	@Keyword
-	def MOD01Login() {
+	def MOD01WSLogin() {
 
 		//Test data
 		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 1)
@@ -65,4 +65,5 @@ public class kywModulos {
 		//JOptionPane.showMessageDialog(null,GlobalVariable.vToken)
 
 	}
+	
 }

@@ -73,8 +73,8 @@ class LGN03BadPswd {
 				//Method
 				GlobalVariable.vMethod,
 				[
-					('User') : GlobalVariable.vUserIncorrecto,
-					('Pswd') : GlobalVariable.vPass,
+					('User') : GlobalVariable.vUser,
+					('Pswd') : GlobalVariable.vPassIncorrecto,
 					('Server') : GlobalVariable.vServer
 				]
 				)

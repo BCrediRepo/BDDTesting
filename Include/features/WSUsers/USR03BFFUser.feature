@@ -1,7 +1,7 @@
 @BFFUsers
-Feature: BFF-User - Informacion de usuario
+Feature: BFF-User - Informacion del usuario
   Se validan los distintos escenarios
-  con los datos correspondientes para BFF-User	
+  con los datos correspondientes para BFF-User
 
   @BFFConsultarUsuario
   Scenario: BFFUser consultar usuaio

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>NTF01-Notification</name>
+   <tag>Notification</tag>
+   <comment></comment>
+   <testCaseGuid>d12923a1-e05c-46b3-b564-072d87ecd9b2</testCaseGuid>
+</TestCaseEntity>

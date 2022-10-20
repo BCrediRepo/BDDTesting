@@ -27,56 +27,56 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 public class kywSQLConnection {
-	
+
 	private static Connection connection = null;
-	
-		/**
-		 * Abre la conexión con la dB
-		 * @param dataFile path absoluto
-		 * @return instancia de java.sql.Connection
-		 **/
-		@Keyword
-		def connectDB(){
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-			if(connection != null && !connection.isClosed()){
-				connection.close()
-			}
-			//connection = DriverManager.getConnection("jdbc:sqlserver://my-db-phe-qa.c4uukmeyrgpl.us-east-1.rds.amazonaws.com:1433;databaseName=Users;user=user_qa;password=Password01")
-			connection = DriverManager.getConnection(findTestData('03-Database/Connection').getValue(1,1) +
-					";databaseName=" + findTestData('03-Database/Connection').getValue(2,1) +
-					";user=" + findTestData('03-Database/Connection').getValue(3,1) +
-					";password=" + findTestData('03-Database/Connection').getValue(4,1))
-			return connection
+
+	/**
+	 * Abre la conexión con la dB
+	 * @param dataFile path absoluto
+	 * @return instancia de java.sql.Connection
+	 **/
+	@Keyword
+	def connectDB(){
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+		if(connection != null && !connection.isClosed()){
+			connection.close()
 		}
-	
-		/**
-		 * Ejecuta un consulta SQL sobre la dB
-		 * @param query SQL como string
-		 **/
-		@Keyword
-		def executeQuery(String queryString) {
-			Statement stm = connection.createStatement()
-			ResultSet rs = stm.executeQuery(queryString)
-			//JOptionPane.showMessageDialog(null, rs)
-			return rs
+		//connection = DriverManager.getConnection("jdbc:sqlserver://my-db-phe-qa.c4uukmeyrgpl.us-east-1.rds.amazonaws.com:1433;databaseName=Users;user=user_qa;password=Password01")
+		connection = DriverManager.getConnection(findTestData('03-Database/Connection').getValue(1,1) +
+				";databaseName=" + findTestData('03-Database/Connection').getValue(2,1) +
+				";user=" + findTestData('03-Database/Connection').getValue(3,1) +
+				";password=" + findTestData('03-Database/Connection').getValue(4,1))
+		return connection
+	}
+
+	/**
+	 * Ejecuta un consulta SQL sobre la dB
+	 * @param query SQL como string
+	 **/
+	@Keyword
+	def executeQuery(String queryString) {
+		Statement stm = connection.createStatement()
+		ResultSet rs = stm.executeQuery(queryString)
+		//JOptionPane.showMessageDialog(null, rs)
+		return rs
+	}
+
+	@Keyword
+	def closeDatabaseConnection() {
+		if(connection != null && !connection.isClosed()){
+			connection.close()
 		}
-	
-		@Keyword
-		def closeDatabaseConnection() {
-			if(connection != null && !connection.isClosed()){
-				connection.close()
-			}
-			connection = null
-		}
-	
-		/**
-		 * Ejecuta INSERT/UPDATE/DELETE/COUNT/SUM.. en la dB
-		 * @param query SQL como string
-		 */
-		@Keyword
-		def execute(String queryString) {
-			Statement stm = connection.createStatement()
-			boolean result = stm.execute(queryString)
-			return result
-		}
+		connection = null
+	}
+
+	/**
+	 * Ejecuta INSERT/UPDATE/DELETE/COUNT/SUM.. en la dB
+	 * @param query SQL como string
+	 */
+	@Keyword
+	def execute(String queryString) {
+		Statement stm = connection.createStatement()
+		boolean result = stm.execute(queryString)
+		return result
+	}
 }

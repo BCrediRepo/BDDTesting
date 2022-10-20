@@ -17,18 +17,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-import javax.swing.JFrame as JFrame
-import javax.swing.JOptionPane as JOptionPane
+//Geneacion de Token
+CustomKeywords.'pkgPayWayWS.kywModulos.MOD01WSLogin'()
 
-//Actualizacion de la dB
-//Query
-vQuery1 = "UPDATE " + findTestData('03-Database/SQLStrings').getValue(2,2) +"='"+ GlobalVariable.vUser+"'"
-//Conecta a la dB
- CustomKeywords.'pkgPayWayWS.kywSQLConnection.connectDB'()
- //Se pone en cero el limite de intentos de acceso
- CustomKeywords.'pkgPayWayWS.kywSQLConnection.execute'(vQuery1)
- //Se cierra lavUpdateon
- CustomKeywords.'pkgPayWayWS.kywSQLConnection.closeDatabaseConnection'()
- 
- //Script de usuario bloqeuado
- CucumberKW.runFeatureFile('Include/features/WSSecurity/LGN04BlockUser.feature')
+//Test case
+CucumberKW.runFeatureFile('Include/features/BFFNotification/NTF01NotifHC.feature')
+
+

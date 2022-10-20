@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>USR01-Consultar usuario</name>
-   <tag></tag>
+   <name>USR01-BFFUser-User</name>
+   <tag>BFFUser</tag>
    <comment></comment>
-   <testCaseGuid>bf73909d-96ff-41d7-a1ff-7e79f7258256</testCaseGuid>
+   <testCaseGuid>479b7ec6-ee1d-4d2b-97c2-a7d94cf5317a</testCaseGuid>
 </TestCaseEntity>

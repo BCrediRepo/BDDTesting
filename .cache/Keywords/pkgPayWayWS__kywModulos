@@ -1,11 +1,11 @@
 {
-  "keywordFileContentHash": "79A909D6849089BAB8F2E8923773F5DA",
+  "keywordFileContentHash": "F9C59A8F3AE6497D085EDCEDC7950B51",
   "keywordClasses": [
     {
       "name": "pkgPayWayWS.kywModulos",
       "keywordMethods": [
         {
-          "name": "MOD01Login",
+          "name": "MOD01WSLogin",
           "parameters": [],
           "javadoc": ""
         }

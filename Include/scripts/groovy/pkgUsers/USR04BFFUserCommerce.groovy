@@ -47,14 +47,14 @@ import javax.swing.JOptionPane as JOptionPane
 
 
 
-class USR03BFFUser {
+class USR04BFFUserCommerce {
 
-	@Given("Configuracion del BFFUser request GET")
-	def configRequest() {
+	@Given("Configuracion UserComerces request GET")
+	def configRequestCommerces() {
 		println("\n Configuracion del Request")
 
 		//Test data
-		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 3)
+		GlobalVariable.vMethod = findTestData('02-Endpoints/Endpoints').getValue(2, 4)
 		GlobalVariable.vServer = findTestData('01-Servers/Servers').getValue(2, 1)
 		//Response data
 		GlobalVariable.vTokenTTLTransport
@@ -62,15 +62,16 @@ class USR03BFFUser {
 		GlobalVariable.vTempHTTPCode
 		GlobalVariable.vTempHTTPCode = findTestData('04-ResponseCodes/HTTPCodes').getValue(2, 1)
 
-		//JOptionPane.showMessageDialog(null, GlobalVariable.vToken)
+		GlobalVariable.vCUIT = findTestData('06-Users/Users').getValue(3,18)
+		GlobalVariable.vRol = findTestData('06-Users/Users').getValue(7,18)
 
+		//JOptionPane.showMessageDialog(null, GlobalVariable.vToken)
 	}
 
-	@When("Envio del request BFFUser GET")
-	def sendRequest() {
+	@When("Envio del request UserCommerces GET")
+	def sendRequestCommerces() {
 		println("\n Envio del request")
 
-		//Method Errors varibales
 		GlobalVariable.vResponse = WS.sendRequest(findTestObject(
 				//Method
 				GlobalVariable.vMethod,
@@ -80,22 +81,19 @@ class USR03BFFUser {
 				]
 				)
 				)
-
 	}
 
-	@Then("Verifica el response BFFUser GET")
-	def verifyResponse() {
+	@Then("Verifica el response UserCommerces")
+	def verifyResponseCommerces() {
 		println("\n Verifica el response")
 
-		//JOptionPane.showMessageDialog(null,GlobalVariable.vToken)
 		int vHTTPCodeVerif
 		vHTTPCodeVerif = Integer.parseInt(GlobalVariable.vTempHTTPCode)
 		//HTTP response code validation
 		WS.verifyResponseStatusCode(GlobalVariable.vResponse, vHTTPCodeVerif)
 
 		//Validacion de campos dentro del response
-		WS.verifyElementPropertyValue(GlobalVariable.vResponse, 'cuit', GlobalVariable.vCUIT)
-		WS.verifyElementPropertyValue(GlobalVariable.vResponse, 'email', GlobalVariable.vUser)
-
+		WS.verifyElementPropertyValue(GlobalVariable.vResponse, '[0].cuit', GlobalVariable.vCUIT)		
+		WS.verifyElementPropertyValue(GlobalVariable.vResponse, '[0].role', GlobalVariable.vRol)
 	}
 }

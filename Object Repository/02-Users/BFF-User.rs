@@ -24,7 +24,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjOGRjNjkzMy1hYjhiLTQ2ZDgtOTA5NC1kMTc4MjI3ZGQyMjMiLCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwiY3VpdCI6IjMwLTYxMzk4OTg4LTUiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImFkbWluIiwicGhlLWZyZWUiXX0sInBlcm1pc3Npb25zIjpbXSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdC5xYS41MkB5b3BtYWlsLmNvbSIsImV4cCI6MTY2NTUyNzUxMiwiaWF0IjoxNjY1NDk4NzEyfQ.lnzwV6bBS5R3MgWnORT2jiNbRt7Cc1yY-8t6qGTpllPXJ1a6SvAen7WPY8BGsLDXUZRRnGR2csSTB092QlKuEa_GyN6XlNDToGDuZFEcGIMPfyvmgVUmxhiWpDWWqrqVrCSPJmaU7LupFCWbD94YFp_2SfhlDm0a-T3iVNDXu0FU2hwitGYeyp8RtlLeN1edA5u1SspLZ4KyuFBGpH7uRVUJl7mLOqRRqtaP3EX3QSrTs9QIgdMbHPuhz7yxCoU2jrsKE3OW_o3beWPu2hAMTcUxw-YaRizYb-kWh4tRPyWENolC-0jFqZ9a5Vos-WonAa8yNlNncAl7MYvf0mQHxw</value>
+      <value>${Token}</value>
       <webElementGuid>5386510c-be2c-4af3-819b-4ac6d3a80330</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.5.0</katalonVersion>
